@@ -1,10 +1,82 @@
-<!DOCTYPE html>
 <html>
-<body>
+  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SegmentDisplay</title>
+    
+    <!--[if IE]>
+      <script type="text/javascript" src="excanvas.js"></script>
+    <![endif]-->
 
-<img src="image.png" width="500" height="650">
+    <script type="text/javascript" src="segment-display.js"></script>
+    <script type="text/javascript">
 
+      var display = new SegmentDisplay("display");
+      display.pattern         = "####";
 
-</body>
+  display.displayAngle    = 0;
+  display.digitHeight     = 29.5;
+  display.digitWidth      = 21;
+  display.digitDistance   = 3.3;
+
+      display.cornerType      = 2;
+      display.displayType     = 7;
+      display.segmentWidth    = 3;
+      display.segmentDistance = 0.5;
+      display.colorOn         = "rgba(0, 0, 0, 0.9)";
+      display.colorOff        = "rgba(0, 0, 0, 0.0)";
+
+      animate();
+      var start = 2017;
+      var value = start;
+      var timeout = 100;
+      var target = 1500;
+      var overshoot_target = 1300;
+      var hit_target = 0;
+      var decrease = true;
+      function animate() {
+       //var value = '404040';
+        if(hit_target == 2) {
+          return;
+        }
+        if(value == target) {
+          hit_target = hit_target + 1;
+        }
+        display.setValue(String(value));
+        window.setTimeout('animate()', timeout);
+        if(!decrease) {
+          timeout = 1;
+        } else {
+          if(value > overshoot_target+(start-overshoot_target)/2) {
+            timeout = timeout - 2;
+          } else {
+            timeout = timeout + 2;
+          }
+        }
+        
+        if(value == overshoot_target) {
+          decrease = false;
+        }
+        if(decrease) {
+        value = value - 1;
+        } else {
+        value = value + 1;
+
+        }
+      }
+
+    </script>
+    
+  </head>
+  
+  <body>
+    <div style="text-align: center">
+      <div style="text-align: center; background: transparent url(plexiglas.png) no-repeat top left">
+        <div style="text-align: center;">
+          <canvas id="display" width="750" height="500"></canvas>
+        </div>
+      </div>
+    </div>
+  </body>
+  
 </html>
-
