@@ -29,7 +29,7 @@
       animate();
       var start = 1949;
       var value = start;
-      var timeout = 500;
+      var timeout = 50;
       var target = 1913;
       var overshoot_target = 1755;
       var hit_target = 0;
@@ -45,7 +45,7 @@
         display.setValue(String(value));
         window.setTimeout('animate()', timeout);
         if(!decrease) {
-          timeout = 1;
+          timeout = 300;
         } else {
           if(value > overshoot_target+(start-overshoot_target)/2) {
             timeout = timeout - 1;
