@@ -1,0 +1,148 @@
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+  background-color: #E8DDB5;
+}
+
+.navbar {
+  min-height: 0px;
+  margin-bottom: 0px;
+}
+
+.nav {
+  margin-left: auto;
+  margin-right: auto;
+  width: 670px;
+}
+
+
+.navbar {
+  background-color: #E8DDB5;
+
+}
+.nav-link {
+  color: black;
+  font-size: larger ;
+}
+
+
+.nav-link {
+  color: black;
+  font-size: larger;
+}
+
+.zoom {
+  width: 200px
+}
+
+.buttons {
+    display: flex; /* or inline-flex */
+}
+
+h2 {
+  text-align: center;
+}
+p {
+  font-size: larger;
+}
+
+.btn {
+  float: right;
+}
+
+.button-img {
+  width: 250px;
+  margin-top: 5rem;
+}
+
+.cards {
+  display: flex;
+  text-align: center;
+  min-width: 1224px;
+  max-width: 1536px;
+  justify-content: space-between;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #E8DDB5;
+
+}
+
+.cards h2 h3 {
+  font-family: 'FF 400'!important; 
+  color: white;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.card1 {
+  background-size: cover;
+  background-position: bottom;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card2 {
+  background-size: cover;
+  background-position: bottom;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card3 {
+  background-size: cover;
+  background-position: bottom;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table {
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+  }
+  
+  .theme {
+    padding:32px 0 32px 0;
+  }
+  
+  .working-area {
+    width: 50%;
+    height: 80%;
+    margin: 0 auto;
+    background-color: rgba(142,36,170,0.3);
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  #footer .footer_image {
+    height: 24px;
+    width:24px;
+    text-align: center;
+    padding: 4px;
+  }
+
+  .jumbotron{
+    background-color: rgb(195, 214, 189) !important; 
+    text-align: center;
+  }
+
+  .table {
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    width: 512px !important;
+    border: blueviolet !important;
+    font-size: x-large;
+  }
+
+  .table td .table th {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    vertical-align: top;
+    border-left: 1px solid #294f75 !important;
+    color: blueviolet;
+  }
+
+
