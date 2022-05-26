@@ -1,120 +1,219 @@
-<!-- #######  YAY, I AM THE SOURCE EDITOR! #########-->
-<!--<h1 style="color: #5e9ca0;">shannonahern.ie is ready :)</h1>-->
-<!--<p>&nbsp;</p>-->
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v4.0.1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <title>Nerd Quizz</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="canonical" href="https://www.akara.ai/"/>
+		<link rel="shortcut icon" type="image/png" href="res/img/favicon.png"/>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/jumbotron/">
-    <!-- Bootstrap core CSS -->
-    <link href="../assets/dist/css/bootstrap.css" rel="stylesheet">
+		<!-- Search Result Title -->
+		<title>DigitalHub Environmental Sensor</title>
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
+		<!-- Page Description -->
+		<meta name="A webpage which presents live sensor data from a network for IoT devices on the DigitalHub campus in Dublin 8" content=""/>
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-      </style>
-      <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
-  
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<!-- Page Creator -->
+		<meta name="author" content="Patrick Lynch, lynchp13@tcd.ie"/>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+		<!-- Twitter Card -->
+		<!-- <meta name="twitter:site" content="@akara_robotics"/>
+		<meta name="twitter:creator" content="@cian_donovan"/>
+		<meta name="twitter:card" content="summary"/>
+		<meta name="twitter:domain" content="akara.ai"/> -->
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Past Quizes</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="./social-media.html">Social Media</a>
-          <a class="dropdown-item" href="#">Sport</a>
-          <a class="dropdown-item" href="/harrypotter.html">Harry Potter</a>
-          <a class="dropdown-item" href="#">Movies</a>
-          <a class="dropdown-item" href="#">Untheamed</a>
-          <a class="dropdown-item" href="#">Randoms</a>
-          <a class="dropdown-item" href="#">TV</a>
-        </div>
-      </li>
-    </ul>
+		<!--Fonts-->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
 
-  </div>
-</nav>
+		<!--Stylesheets-->
+		<!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"/> -->
+		<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="css/index.css"/> -->
 
+		<!--Scripts-->
+		<script type="text/javascript" src="https://livejs.com/live.js"></script>
+		<script type="text/javascript" src="javascript/demo.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://d3js.org/d3.v7.min.js"></script>
 
-<main role="main" >
+		<style>
+			body
+			{
+			  background-image: url('res/img/TheDigitalHubCampus1.jpeg');
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-size: cover;
+				background-position: bottom;
+			}
+		</style>
 
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron">
-    <div class="container">
-      <h1 class="display-3">Who Wants to Host a Quizz</h1>
-      <p>Welcome to nerd quiz time</p>
-    </div>
-  </div>
-  <div class="cards">
+	</head>
 
-    <div class="card2">
-      <p>
-      <!--<a target="_blank" href="../enter.html">-->
-        <a target="_blank" href="https://youtu.be/dQw4w9WgXcQ?t=43&autoplay=1">
-        <img  class="button-img" alt="" src="images/enter-img.png">
-        </a>
-      </p>
-        </div>
-      <div class="card1">
-        <p>
-          <a href="https://youtu.be/dQw4w9WgXcQ?t=43&autoplay=1">
-          <img  class="button-img" alt="" src="images/leaderboard-img.png">
-          </a>
-        </p>
-          </div>
+	<body>
 
-      <div class="card3">
-        <p>
-	<!--<a target="_blank" href="https://zendesk.zoom.us/j/9712923786?pwd=L3doYjB4dXV0QUcrSVY1SzVNZ3hxUT09">-->
-          <a target="_blank" href="https://youtu.be/dQw4w9WgXcQ?t=43&autoplay=1">
-          <img  class="button-img" alt="" src="images/this-chat.png">
-          </a>
-        </p>
+		<header>
+			<img src="res/img/TheDigitalHubName.png" alt="The Digital Hub Logo">
+			<h1>
+				Smart
+				<br>
+				Campus
+			</h1>
+		</header>
+
+		<nav>
+			<a class="nav-img" href="soil.html" aria-current="page">
+				<img src="res/img/TheDigitalHubName.png" alt="The DigitalHub Name">
+			</a>
+		</nav>
+
+		<main>
+
+			<section id="environmental-monitoring" class="weighted-split">
+				<div class="split split-text">
+					<article>
+						<h2 class="env_prop">Temperature, Humitity<br>Light Intensity, CO2 levels</h2>
+					</article>
+					<div id=demo>
+					  <!-- <button onclick="changeColor('blue')">Blue</button> -->
+					  <button onclick="d3()">Blue</button>
+					  <button onclick="changeColor('green')">Green</button>
+					  <button onclick="changeColor('red')">Red</button>
+					  <button onclick="getSensorReadings()">API</button>
+						<!-- <svg id="d3_demo"></svg> -->
+				</div>
+				</div>
+				<div class="split split-image triangle triangle-right">
+					<div class="altslide">
+						<img src="res/img/SmartCitizenSensor.jpeg" alt="Smart Citizen Sensor">
+					</div>
+				</div>
+				<svg id="d3_demo"></svg>
+			</section>
 
 
-</main>
+			<section id="traffic-monitoring" class="weighted-split">
+				<div class="split split-image triangle triangle-left">
+					<div class="altslide">
+						<img src="res/img/WeCountSensor.png" alt="WeCount Sensor">
+					</div>
+				</div>
+				<div class="split split-text">
+					<article>
+						<h2 class="traffic_prop">Counting Traffic<br>Counting Pedesterians</h2>
+					</article>
+					<div id=traffic_demo>
+					  <!-- <button onclick="changeTrafficColor('blue')">Blue</button> -->
+					  <button onclick="d3()">Blue</button>
+					  <button onclick="changeTrafficColor('green')">Green</button>
+					  <button onclick="changeTrafficColor('red')">Red</button>
+					  <button onclick="getTrafficSensorReadings()">API</button>
+				</div>
+					<div id="myTrafficData"></div>
+				</div>
+			</section>
 
-<footer class="container">
-</footer>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.js"></script></body>
+			<section id="bee-monitoring" class="weighted-split">
+				<div class="split split-text">
+					<article>
+						<h2 class="env_prop">Hive Monitoring<br>Temperature, Weight, Humidity</h2>
+					</article>
+					<div id=demo>
+					  <button onclick="changeColor('blue')">Blue</button>
+					  <button onclick="changeColor('green')">Green</button>
+					  <button onclick="changeColor('red')">Red</button>
+					  <!-- <button onclick="getSensorReadings()">API</button> -->
+				</div>
+				</div>
+				<div class="split split-image triangle triangle-right">
+					<div class="altslide">
+						<img src="res/img/HiveMonitoringLogo.png" alt="Hive Monitoring Logo">
+					</div>
+				</div>
+			</section>
+
+			<section id="solar-generation-monitoring" class="weighted-split">
+				<div class="split split-image triangle triangle-left">
+					<div class="altslide">
+						<img src="res/img/SolarPanels.jpeg" alt="Solar Panel Image">
+					</div>
+				</div>
+				<div class="split split-text">
+					<article>
+						<h2 class="traffic_prop">Photovoltic Generation<br>Monitoring Energy Output</h2>
+					</article>
+					<div id=traffic_demo>
+					  <button onclick="changeTrafficColor('blue')">Blue</button>
+					  <button onclick="changeTrafficColor('green')">Green</button>
+					  <button onclick="changeTrafficColor('red')">Red</button>
+					  <!-- <button onclick="getTrafficSensorReadings()">API</button> -->
+				</div>
+					<div id="myTrafficData"></div>
+				</div>
+			</section>
+
+			<section id="verticle-garden" class="weighted-split">
+				<div class="split split-text">
+					<article>
+						<h2 class="env_prop">Air Temperature<br>Air Pressure</h2>
+					</article>
+					<div id=ESPdemo>
+					  <button onclick="changeColor('blue')">Blue</button>
+					  <button onclick="changeColor('green')">Green</button>
+					  <button onclick="changeColor('red')">Red</button>
+					  <button onclick="getESPAirReadings()">API</button>
+				</div>
+				</div>
+				<div class="split split-image triangle triangle-right">
+					<div class="altslide">
+						<img src="res/img/VerticleGarden.jpg" alt="Verticle Garden">
+					</div>
+				</div>
+			</section>
+
+			<section id="partners">
+				<h2>World Class Development Partners</h2>
+				<div class="partners-block">
+					<a href="https://smartdublin.ie/">
+						<img src="res/img/SmartD8Logo.png" alt="Smart Dublin Logo" width="225" height="75">
+					</a>
+					<a href="https://we-count.net/">
+						<img src="res/img/WeCountLogo.png" alt="WeCount Logo" width="500" height="120">
+					</a>
+					&ensp;
+					<a href="https://www.ucd.ie/">
+						<img src="res/img/UCDLogo.png" alt="University College Dublin" width="75" height="100">
+					</a>
+					&ensp;&ensp;&ensp;&ensp;&ensp;
+					<a href="https://www.thedigitalhub.com/">
+						<img src="res/img/TDH.png" alt="The Digital Hub" width="170" height="80">
+					</a>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="footer-item">
+				<h4>The Digital Hub</h4>
+				<p>
+					A technology campus in The Liberties, Dublin 8
+					<br>
+					<em> Engaging the community with technology</em>
+				</p>
+			</div>
+
+			<div class="footer-item">
+				<h4>Contact Us</h4>
+				<p>lynchp13@tcd.ie</p>
+				<div class="footer-social">
+					<a href="mailto: lynchp13@tcd.ie">
+						<i>&#9993</i>
+					</a>
+				</div>
+			</div>
+
+		</footer>
+	</body>
 </html>
-
-
-

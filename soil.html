@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+		<link rel="shortcut icon" type="image/png" href="res/img/favicon.png"/>
+
+		<!-- Search Result Title -->
+		<title>DigitalHub Soil Sensors</title>
+
+		<!-- Page Description -->
+		<meta name="A webpage which presents live sensor data about the condition of the soil in our verticle garden" content=""/>
+
+		<!-- Page Creator -->
+		<meta name="author" content="Patrick Lynch, lynchp13@tcd.ie"/>
+
+		<!-- Twitter Card -->
+		<!-- <meta name="twitter:site" content="@akara_robotics"/>
+		<meta name="twitter:creator" content="@cian_donovan"/>
+		<meta name="twitter:card" content="summary"/>
+		<meta name="twitter:domain" content="akara.ai"/> -->
+
+		<!--Fonts-->
+
+		<!--Stylesheets-->
+		<link rel="stylesheet" type="text/css" href="css/soil.css"/>
+		<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+
+		<!--Scripts-->
+		<script type="text/javascript" src="https://livejs.com/live.js"></script>
+		<!-- <script type="text/javascript" src="javascript/soil.js"></script> -->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+	</head>
+
+	<body>
+
+		<nav>
+			<a class="nav-img" href="test.html" aria-current="page">
+				<img src="res/img/TheDigitalHubName.png" alt="The DigitalHub Name">
+			</a>
+		</nav>
+
+		<main>
+
+			<section id="soil-monitoring">
+				<div class=aligncenter>
+					<!-- <img src="res/img/VerticleGardenBlank.png" alt="Verticle Garden Blank"> -->
+					<object width="800" height="1000" id="svg-object" data="res/img/VerticleGardenBlank.svg" type="image/svg+xml"></object>
+					<!-- <object width="1260" height="1662" id="svg-object" data="res/img/VerticleGardenBlank.svg" type="image/svg+xml"></object> -->
+					<!-- <object id="svg1" data="res/img/happy.svg" width="300" height="300" type="image/svg+xml"> </object> -->
+
+				</div>
+			</section>
+			<!-- <section id="button" class="aligncenter">
+				<div id=d3_VG_demo> -->
+					<!-- <button onclick="changeColor('blue')">Blue</button> -->
+					<button onclick="updateSVG()">Blue</button>
+					<!-- <button onclick="changeColor('green')">Green</button>
+					<button onclick="changeColor('red')">Red</button>-->
+					<button onclick="getESPAirReadings()">API</button>
+					<!-- <svg id="d3_demo"></svg> -->
+				<!-- </div> -->
+			</section>
+
+			<script type="text/javascript" src="javascript/soil.js"></script>
+
+			<section id="partners">
+				<h2>World Class Development Partners</h2>
+				<div class="partners-block">
+					<a href="https://smartdublin.ie/">
+						<img src="res/img/SmartD8Logo.png" alt="Smart Dublin Logo" width="225" height="75">
+					</a>
+					<a href="https://we-count.net/">
+						<img src="res/img/WeCountLogo.png" alt="WeCount Logo" width="500" height="120">
+					</a>
+					&ensp;
+					<a href="https://www.ucd.ie/">
+						<img src="res/img/UCDLogo.png" alt="University College Dublin" width="75" height="100">
+					</a>
+					&ensp;&ensp;&ensp;&ensp;&ensp;
+					<a href="https://www.thedigitalhub.com/">
+						<img src="res/img/TDH.png" alt="The Digital Hub" width="170" height="80">
+					</a>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="footer-item">
+				<h4>The Digital Hub</h4>
+				<p>
+					A technology campus in The Liberties, Dublin 8
+					<br>
+					<em> Engaging the community with technology</em>
+				</p>
+			</div>
+
+			<div class="footer-item">
+				<h4>Contact Us</h4>
+				<p>lynchp13@tcd.ie</p>
+				<div class="footer-social">
+					<a href="mailto: lynchp13@tcd.ie">
+						<i>&#9993</i>
+					</a>
+				</div>
+			</div>
+
+		</footer>
+	</body>
+</html>
