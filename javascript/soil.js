@@ -74,6 +74,17 @@
 
  function updateSVG(data)
  {
+  const positions = [
+                      [["170","72"],["235","72"],["295","72"]],  // Row 0
+                      [["170","117"],["235","117"],["295", "117"]],  // Row 1
+                      [["170","169"],["235","169"],["295","169"]],  // Row 2
+                      [["170","219"],["235","219"],["295","219"]],  // Row 3
+                      [["170","267"],["235","267"],["295","267"]],  // Row 4
+                      [["170","316"],["235","316"],["295","316"]],  // Row 5
+                      [["170","365"],["235","365"],["295","365"]],  // Row 6
+                      [["170","414"],["235","414"],["295","414"]]  // Row 7
+                    ]
+
    console.log(data);
     //when user clicks this button we turn on the light which has id="my_light"
     // turn_off("tree");
@@ -91,7 +102,8 @@
     var lowest_moisture_arrow = doc.getElementById("path1533");
     var highest_moisture_arrow = doc.getElementById("path1533-2");
     var highest_temperature_arrow = doc.getElementById("path1533-2-2");
-    var highest_moisture_text = doc.getElementById("text1837-5");
+    var highest_moisture_text = doc.getElementById("highest-moisture-text");
+    var lowest_temperature_text = doc.getElementById("lowest-temperature-text");
 
 
     // air_pressure_label.setAttribute("fill", "green");
@@ -103,22 +115,31 @@
     air_temperature_value.style="font-size:9px;text-align:center;text-anchor:left"
     highest_temperature_value.textContent = "TESTING";
     highest_temperature_value.style="font-size:9px;text-align:center;text-anchor:rileftght"
-    lowest_temperature_value.textContent = "TESTING";
-    lowest_temperature_value.style="font-size:9px;text-align:center;text-anchor:left"
     highest_moisture_value.textContent = "TESTING";
     highest_moisture_value.style="font-size:9px;text-align:center;text-anchor:right"
     lowest_moisture_value.textContent = "TESTING";
     lowest_moisture_value.style="font-size:9px;text-align:center;text-anchor:left"
     // lowest_moisture_value.x = "268.39194";
-    lowest_moisture_value.setAttribute("x", "-248.39194");
-    lowest_moisture_value.setAttribute("y", "121.879973");
+    // lowest_moisture_value.setAttribute("x", "-248.39194");
+    // lowest_moisture_value.setAttribute("y", "121.879973");
+
+    let row = 7; column = 2;
+    const x = 0; y = 1;
+
+    let lta_d = "m " + positions[row][column][x] + ', ' + positions[row][column][y] + ', 23.63006, 23.63007 h 1000';
+    console.log(lta_d)
+
+    lowest_temperature_value.textContent = "TESTING";
+    lowest_temperature_value.style="font-size:9px;text-align:center;text-anchor:left"
+    // lowest_temperature_value.setAttribute("x", positions[row][column][x]-504);
+    lowest_temperature_value.setAttribute("y", positions[row][column][y]-94);
+    lowest_temperature_arrow.setAttribute("d", lta_d);
+    lowest_temperature_text.setAttribute("y", positions[row][column][y]-109);
+
 
     // air_pressure_arrow.setAttribute("d", "m -237.13283,-303.055 h -83.88509 l -38.35789,22.14592")
-    // lowest_temperature_arrow.setAttribute("d", "m 170, 117.76295 23.63006, 23.63007 h 1000")
     // lowest_moisture_arrow.setAttribute("d", "m 170, 313.25044 23.63006,23.63006 h 1000")
-    // lowest_temperature_arrow.setAttribute("d", "m 235, 117.76295 23.63006, 23.63007 h 1000")
     // lowest_moisture_arrow.setAttribute("d", "m 235, 313.25044 23.63006,23.63006 h 1000")
-    // lowest_temperature_arrow.setAttribute("d", "m 295, 117.76295 23.63006, 23.63007 h 1000")
     // lowest_moisture_arrow.setAttribute("d", "m 295, 313.25044 23.63006,23.63006 h 1000")
     // highest_temperature_arrow.setAttribute("d", "M 168.67898,164.82308 145.04892,141.19302 H 23.883822")
     // highest_moisture_arrow.setAttribute("d", "M 168.81962,410.39486 145.18956,386.7648 H 17.096152")
@@ -127,6 +148,6 @@
     // highest_temperature_arrow.setAttribute("d", "M 268.67898,164.82308 245.04892,145 H 23.883822")
     // highest_moisture_arrow.setAttribute("d", "M 268.81962,410.39486 245.18956,390 H 17.096152")
 
-    highest_moisture_text.setAttribute("x", "7.2285");
-    highest_moisture_text.setAttribute("y", "100");
+    // highest_moisture_text.setAttribute("x", "7.2285");
+    // highest_moisture_text.setAttribute("y", "100");
 }
