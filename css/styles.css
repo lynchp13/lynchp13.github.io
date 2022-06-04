@@ -4,8 +4,8 @@
 	--split-min-width: 400px;
 	/* --section-problems-height: 500px;
 	--section-sensor-height: 500px; */
-	--section-problems-height: 30vw;
-	--section-sensor-height: 30vw;
+	--section-problems-height: 100vw;
+	--section-sensor-height: 100vw;
 }
 
 *
