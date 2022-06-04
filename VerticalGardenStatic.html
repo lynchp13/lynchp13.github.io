@@ -28,22 +28,37 @@
 		<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 
 		<!--Scripts-->
-		<!-- <script type="text/javascript" src="https://livejs.com/live.js"></script>
-		<script type="text/javascript" src="javascript/soil.js"></script>
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
-		<!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
-		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="https://livejs.com/live.js"></script>
+		<!-- <script type="text/javascript" src="javascript/soil.js"></script> -->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<!-- <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
 
 	</head>
 
 	<body>
 
 		<main>
-
 			<section id="soil-monitoring">
 				<div class=aligncenter>
-					<img width=1421.3 height=995.33 src="res/img/VerticleGardenStatic.png" alt="Verticle Garden Static">
+					<!-- <img src="res/img/VerticleGardenBlank.png" alt="Verticle Garden Blank"> -->
+					<object width="800" height="1000" id="svg-object" data="res/img/VerticleGardenStatic.svg" type="image/svg+xml"></object>
+					<!-- <object width="1260" height="1662" id="svg-object" data="res/img/VerticleGardenBlank.svg" type="image/svg+xml"></object> -->
+					<!-- <object id="svg1" data="res/img/happy.svg" width="300" height="300" type="image/svg+xml"> </object> -->
+
 				</div>
+			</section>
+			<!-- <section id="button" class="aligncenter">
+				<div id=d3_VG_demo> -->
+					<!-- <button onclick="changeColor('blue')">Blue</button> -->
+					<button onclick="updateSVG()">Blue</button>
+					<!-- <button onclick="changeColor('green')">Green</button>
+					<button onclick="changeColor('red')">Red</button>-->
+					<button onclick="getESPAirReadings()">API</button>
+					<!-- <svg id="d3_demo"></svg> -->
+				<!-- </div> -->
+			</section>
+
+			<script type="text/javascript" src="javascript/VerticalGardenStatic.js"></script>
 
 		</main>
 

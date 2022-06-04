@@ -104,6 +104,8 @@
     var highest_temperature_arrow = doc.getElementById("path1533-2-2");
     var highest_moisture_text = doc.getElementById("highest-moisture-text");
     var lowest_temperature_text = doc.getElementById("lowest-temperature-text");
+    var lowest_moisture_text = doc.getElementById("lowest-moisture-text");
+    var highest_temperature_text = doc.getElementById("highest-temperature-text");
 
 
     // air_pressure_label.setAttribute("fill", "green");
@@ -113,8 +115,6 @@
     air_pressure_value.style="font-size:9px;text-align:center;text-anchor:right"
     air_temperature_value.textContent = Math.round(data.field1*10)/10 + "°C";
     air_temperature_value.style="font-size:9px;text-align:center;text-anchor:left"
-    highest_temperature_value.textContent = "TESTING";
-    highest_temperature_value.style="font-size:9px;text-align:center;text-anchor:rileftght"
     highest_moisture_value.textContent = "TESTING";
     highest_moisture_value.style="font-size:9px;text-align:center;text-anchor:right"
     lowest_moisture_value.textContent = "TESTING";
@@ -125,27 +125,41 @@
 
     let row = 7; column = 2;
     const x = 0; y = 1;
-
     let lta_d = "m " + positions[row][column][x] + ', ' + positions[row][column][y] + ', 23.63006, 23.63007 h 1000';
     console.log(lta_d)
-
     lowest_temperature_value.textContent = "TESTING";
     lowest_temperature_value.style="font-size:9px;text-align:center;text-anchor:left"
-    // lowest_temperature_value.setAttribute("x", positions[row][column][x]-504);
     lowest_temperature_value.setAttribute("y", positions[row][column][y]-94);
     lowest_temperature_arrow.setAttribute("d", lta_d);
     lowest_temperature_text.setAttribute("y", positions[row][column][y]-109);
 
+    row = 0; column = 0;
+    let lma_d = "m " + positions[row][column][x] + ', ' + positions[row][column][y] + ', 23.63006, 23.63007 h 1000';
+    console.log(lma_d)
+    lowest_moisture_value.textContent = "TESTING";
+    lowest_moisture_value.style="font-size:9px;text-align:center;text-anchor:left"
+    lowest_moisture_value.setAttribute("y", positions[row][column][y]-291);
+    lowest_moisture_arrow.setAttribute("d", lma_d);
+    lowest_moisture_text.setAttribute("y", positions[row][column][y]-304);
+
+    row = 0; column = 0;
+    // let hta_d = "m " + positions[row][column][x] + ', ' + positions[row][column][y] + ', 23.63006, 23.63007 h 1000';
+    // let hta_d = "M 219, 410, 195, 387 H 17";
+    // let hta_d = "M 169, 165, 145, 141 H 24";
+    // let hta_d = "M 269, 265, 245, 245 H 24";
+    let hta_d = "M 219, " + positions[row][column][y]-4 + ", 195, " + positions[row][column][y]-27 + " H 17";
+    console.log(hta_d)
+    highest_temperature_value.textContent = "TESTING";
+    highest_temperature_value.style="font-size:9px;text-align:center;text-anchor:left"
+    highest_temperature_value.setAttribute("y", "22");
+    highest_temperature_arrow.setAttribute("d", hta_d);
+    highest_temperature_text.setAttribute("y", positions[row][column][y]-405);
+
+    // "235","414"
 
     // air_pressure_arrow.setAttribute("d", "m -237.13283,-303.055 h -83.88509 l -38.35789,22.14592")
-    // lowest_moisture_arrow.setAttribute("d", "m 170, 313.25044 23.63006,23.63006 h 1000")
-    // lowest_moisture_arrow.setAttribute("d", "m 235, 313.25044 23.63006,23.63006 h 1000")
-    // lowest_moisture_arrow.setAttribute("d", "m 295, 313.25044 23.63006,23.63006 h 1000")
-    // highest_temperature_arrow.setAttribute("d", "M 168.67898,164.82308 145.04892,141.19302 H 23.883822")
     // highest_moisture_arrow.setAttribute("d", "M 168.81962,410.39486 145.18956,386.7648 H 17.096152")
-    // highest_temperature_arrow.setAttribute("d", "M 218.67898,264.82308 195.04892,241.19302 H 23.883822")
     // highest_moisture_arrow.setAttribute("d", "M 218.81962,410.39486 195.18956,386.7648 H 17.096152")
-    // highest_temperature_arrow.setAttribute("d", "M 268.67898,164.82308 245.04892,145 H 23.883822")
     // highest_moisture_arrow.setAttribute("d", "M 268.81962,410.39486 245.18956,390 H 17.096152")
 
     // highest_moisture_text.setAttribute("x", "7.2285");
