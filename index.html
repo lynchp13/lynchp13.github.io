@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RGB to ThingSpeak</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .input-group {
+      margin: 15px 0;
+    }
+    input[type="number"] {
+      width: 60px;
+      margin: 0 5px;
+      text-align: center;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Send RGB Values to ThingSpeak</h1>
+  <div class="input-group">
+    <label for="red">Red:</label>
+    <input type="number" id="red" min="0" max="255" placeholder="0">
+  </div>
+  <div class="input-group">
+    <label for="green">Green:</label>
+    <input type="number" id="green" min="0" max="255" placeholder="0">
+  </div>
+  <div class="input-group">
+    <label for="blue">Blue:</label>
+    <input type="number" id="blue" min="0" max="255" placeholder="0">
+  </div>
+  <button onclick="sendToThingSpeak()">Send</button>
+
+  <script>
+    function sendToThingSpeak() {
+      const red = document.getElementById('red').value;
+      const green = document.getElementById('green').value;
+      const blue = document.getElementById('blue').value;
+
+      // Validate RGB values
+      if (!red || !green || !blue || red < 0 || red > 255 || green < 0 || green > 255 || blue < 0 || blue > 255) {
+        alert("Please enter valid RGB values between 0 and 255.");
+        return;
+      }
+
+      // Your ThingSpeak API key and endpoint
+      const apiKey = 'YOUR_API_KEY_HERE'; // Replace with your API key
+      const url = `https://api.thingspeak.com/update?api_key=${apiKey}&field1=${red}&field2=${green}&field3=${blue}`;
+
+      // Send data to ThingSpeak
+      fetch(url)
+        .then(response => {
+          if (response.ok) {
+            alert('Data sent to ThingSpeak successfully!');
+          } else {
+            alert('Failed to send data to ThingSpeak.');
+          }
+        })
+        .catch(error => {
+          alert('Error sending data to ThingSpeak.');
+          console.error(error);
+        });
+    }
+  </script>
+</body>
+</html>
