@@ -94,7 +94,7 @@
       const rgbText = rgbDisplay.textContent.replace('RGB: ', '').split(',');
       const [red, green, blue] = rgbText.map((v) => parseInt(v.trim()));
 
-      const apiKey = 'YOUR_API_KEY_HERE'; // Replace with your API key
+      const apiKey = 'LHJWLL2QV26Q5Q4L'; // Replace with your API key
       const url = `https://api.thingspeak.com/update?api_key=${apiKey}&field1=${red}&field2=${green}&field3=${blue}`;
 
       fetch(url)
