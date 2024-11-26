@@ -1,118 +1,128 @@
-<!DOCTYPE html>
+<!--       const apiKey = 'LHJWLL2QV26Q5Q4L'; // Replace with your API key -->
+<!--       const url = `https://api.thingspeak.com/update?api_key=${apiKey}&field1=${red}&field2=${green}&field3=${blue}`; -->
+
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Control the Christmas Lights in the Instrumentation Lab</title>
+  <title>Color & Pattern Selector</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 20px;
     }
-    canvas {
-      cursor: crosshair;
-      display: block;
-      margin: 0 auto 20px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      max-width: 600px;
+      margin: 20px auto;
     }
-    .preview-box {
-      width: 100px;
-      height: 100px;
-      margin: 0 auto 20px;
-      border: 1px solid #ccc;
-    }
-    button {
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
+    .button {
+      width: 60px;
+      height: 60px;
       border: none;
-      cursor: pointer;
       border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s;
     }
-    button:hover {
-      background-color: #45a049;
+    .button:hover {
+      transform: scale(1.1);
+    }
+    .color-button {
+      border: 2px solid #ccc;
+    }
+    .pattern-button {
+      background-color: #444;
+      color: white;
+      font-size: 14px;
+      text-transform: uppercase;
     }
   </style>
 </head>
 <body>
-  <h1>Select a Color</h1>
-  <canvas id="colorWheel" width="300" height="300"></canvas>
-  <div class="preview-box" id="previewBox"></div>
-  <p id="rgbDisplay">RGB: 255, 0, 0</p>
-  <button onclick="sendToThingSpeak()">Send</button>
+  <h1>Color & Pattern Selector</h1>
+  <p>Select a color or pattern to send a command:</p>
+  <div class="grid" id="buttonGrid"></div>
 
   <script>
-    const canvas = document.getElementById('colorWheel');
-    const ctx = canvas.getContext('2d');
-    const previewBox = document.getElementById('previewBox');
-    const rgbDisplay = document.getElementById('rgbDisplay');
+    // Define button data
+    const buttons = [
+      // Colors: Hexadecimal values for specific colors
+      { label: '', color: '#FF0000', command: '#FF0000' }, // Red
+      { label: '', color: '#00FF00', command: '#00FF00' }, // Green
+      { label: '', color: '#0000FF', command: '#0000FF' }, // Blue
+      { label: '', color: '#FFFF00', command: '#FFFF00' }, // Yellow
+      { label: '', color: '#FF00FF', command: '#FF00FF' }, // Magenta
+      { label: '', color: '#00FFFF', command: '#00FFFF' }, // Cyan
+      { label: '', color: '#FFFFFF', command: '#FFFFFF' }, // White
+      { label: '', color: '#000000', command: '#000000' }, // Black
+      { label: '', color: '#FFA500', command: '#FFA500' }, // Orange
+      { label: '', color: '#800080', command: '#800080' }, // Purple
+      { label: '', color: '#808080', command: '#808080' }, // Gray
+      { label: '', color: '#A52A2A', command: '#A52A2A' }, // Brown
+      { label: '', color: '#8B0000', command: '#8B0000' }, // Dark Red
+      { label: '', color: '#008000', command: '#008000' }, // Dark Green
+      { label: '', color: '#00008B', command: '#00008B' }, // Dark Blue
+      { label: '', color: '#FFD700', command: '#FFD700' }, // Gold
+      { label: '', color: '#4B0082', command: '#4B0082' }, // Indigo
+      { label: '', color: '#9400D3', command: '#9400D3' }, // Violet
+      { label: '', color: '#7FFFD4', command: '#7FFFD4' }, // Aquamarine
+      { label: '', color: '#DC143C', command: '#DC143C' }, // Crimson
 
-    function drawColorWheel() {
-      const radius = canvas.width / 2;
-      const centerX = canvas.width / 2;
-      const centerY = canvas.height / 2;
+      // Patterns: Hexadecimal values for patterns
+      { label: 'Wave', color: '', command: '#PATTERN1' },
+      { label: 'Blink', color: '', command: '#PATTERN2' },
+      { label: 'Fade', color: '', command: '#PATTERN3' },
+      { label: 'Chase', color: '', command: '#PATTERN4' },
+      { label: 'Strobe', color: '', command: '#PATTERN5' },
+      { label: 'Random', color: '', command: '#PATTERN6' },
+      { label: 'Sparkle', color: '', command: '#PATTERN7' },
+      { label: 'Twinkle', color: '', command: '#PATTERN8' }
+    ];
 
-      for (let angle = 0; angle < 360; angle += 1) {
-        const startAngle = (angle * Math.PI) / 180;
-        const endAngle = ((angle + 1) * Math.PI) / 180;
+    // ThingSpeak API details
+    const THINGSPEAK_URL = 'https://api.thingspeak.com/update';
+    const API_KEY = 'LHJWLL2QV26Q5Q4L'; // Replace with your API key
 
-        const gradient = ctx.createRadialGradient(
-          centerX,
-          centerY,
-          0,
-          centerX,
-          centerY,
-          radius
-        );
-        gradient.addColorStop(0, `hsl(${angle}, 100%, 50%)`);
-        gradient.addColorStop(1, `hsl(${angle}, 100%, 90%)`);
+    // Create buttons and add them to the grid
+    const grid = document.getElementById('buttonGrid');
+    buttons.forEach((button) => {
+      const btn = document.createElement('button');
+      btn.classList.add('button');
 
-        ctx.beginPath();
-        ctx.moveTo(centerX, centerY);
-        ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-        ctx.closePath();
-        ctx.fillStyle = gradient;
-        ctx.fill();
+      if (button.color) {
+        // Style for color buttons
+        btn.style.backgroundColor = button.color;
+        btn.classList.add('color-button');
+      } else {
+        // Style for pattern buttons
+        btn.textContent = button.label;
+        btn.classList.add('pattern-button');
       }
-    }
 
-    function getColorFromCanvas(event) {
-      const rect = canvas.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
+      btn.addEventListener('click', () => sendToThingSpeak(button.command));
+      grid.appendChild(btn);
+    });
 
-      const pixel = ctx.getImageData(x, y, 1, 1).data;
-      const rgb = { r: pixel[0], g: pixel[1], b: pixel[2] };
-
-      if (pixel[3] === 0) return; // Ignore transparent areas outside the wheel
-
-      previewBox.style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
-      rgbDisplay.textContent = `RGB: ${rgb.r}, ${rgb.g}, ${rgb.b}`;
-    }
-
-    function sendToThingSpeak() {
-      const rgbText = rgbDisplay.textContent.replace('RGB: ', '').split(',');
-      const [red, green, blue] = rgbText.map((v) => parseInt(v.trim()));
-
-      const apiKey = 'LHJWLL2QV26Q5Q4L'; // Replace with your API key
-      const url = `https://api.thingspeak.com/update?api_key=${apiKey}&field1=${red}&field2=${green}&field3=${blue}`;
-
+    // Function to send the command to ThingSpeak
+    function sendToThingSpeak(command) {
+      const url = `${THINGSPEAK_URL}?api_key=${API_KEY}&field1=${encodeURIComponent(command)}`;
       fetch(url)
         .then((response) => {
           if (response.ok) {
-            alert('Data sent to Instrumentation Lab successfully, Merry Christmas!');
+            alert(`Command sent: ${command}`);
           } else {
-            alert('Failed to send data.');
+            alert('Failed to send command to ThingSpeak.');
           }
         })
         .catch((error) => {
-          console.error('Error sending data:', error);
-          alert('Error sending data.');
+          console.error('Error sending command:', error);
+          alert('Error sending command.');
         });
     }
-
-    canvas.addEventListener('click', getColorFromCanvas);
-    drawColorWheel();
   </script>
 </body>
 </html>
