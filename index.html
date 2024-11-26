@@ -109,7 +109,7 @@
 
     // Function to send the command to ThingSpeak
     function sendToThingSpeak(command) {
-      const url = `${THINGSPEAK_URL}?api_key=${API_KEY}&field1=${encodeURIComponent(command)}`;
+      const url = `${THINGSPEAK_URL}?api_key=${API_KEY}&field4=${encodeURIComponent(command)}`;
       fetch(url)
         .then((response) => {
           if (response.ok) {
