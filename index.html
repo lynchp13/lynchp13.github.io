@@ -96,7 +96,10 @@
       const btn = document.createElement('button');
       btn.classList.add('button');
 
-      if (button.color) {
+      if (button.multiColor) {
+        // Apply the gradient directly for multi-color buttons
+        btn.style.background = 'conic-gradient(red 0% 33%, blue 33% 66%, green 66% 100%)';
+      } else if (button.color) {
         // Style for color buttons
         btn.style.backgroundColor = button.color;
         btn.classList.add('color-button');
