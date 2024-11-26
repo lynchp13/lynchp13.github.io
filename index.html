@@ -40,6 +40,9 @@
       font-size: 14px;
       text-transform: uppercase;
     }
+    .multi-color-button {
+      background: conic-gradient(red 0% 33%, blue 33% 66%, green 66% 100%);
+    }
   </style>
 </head>
 <body>
@@ -58,19 +61,19 @@
       { label: '', color: '#FFA500', command: '0x54' }, // Orange
       { label: '', color: '#4561ff', command: '0x55' },
       { label: '', color: '#4B0082', command: '0x49' }, // Indigo
-      { label: '', color: '#000000', command: '0x48' }, // Black
+      { label: '', multiColor: true, command: '0x48' }, // Red, Blue, Green slices
       { label: '', color: '#FFFF00', command: '0x50' }, // Yellow
       { label: '', color: '#00FFFF', command: '0x51' }, // Cyan
       { label: '', color: '#800080', command: '0x4D' }, // Purple
-      { label: '', color: '#808080', command: '0x4C' }, // Gray
+      { label: '', multiColor: true, command: '0x4C' }, // Red, Blue, Green slices
       { label: '', color: '#63ae0f', command: '0x1C' }, 
       { label: '', color: '#7df9f5', command: '0x1D' }, 
       { label: '', color: '#f8a8ff', command: '0x1E' }, 
-      { label: '', color: '#000000', command: '0x1F' }, 
-      { label: '', color: '#000000', command: '0x18' }, 
-      { label: '', color: '#000000', command: '0x19' }, 
-      { label: '', color: '#000000', command: '0x1A' }, 
-      { label: '', color: '#000000', command: '0x1B' }, 
+      { label: '', multiColor: true, command: '0x1F' }, // Red, Blue, Green slices
+      { label: '', multiColor: true, command: '0x18' }, // Red, Blue, Green slices
+      { label: '', multiColor: true, command: '0x19' }, // Red, Blue, Green slices
+      { label: '', multiColor: true, command: '0x1A' }, // Red, Blue, Green slices
+      { label: '', multiColor: true, command: '0x1B' }, // Red, Blue, Green slices 
 
       // Patterns: Hexadecimal values for patterns
       { label: 'Steady On', color: '', command: '0x14' },
